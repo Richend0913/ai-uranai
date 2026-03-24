@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI鑑定｜AI占い師 - 姓名判断×星座×血液型</title>
+  <meta name="description" content="お名前と生年月日を入力するだけ。AIが姓名判断・星座・血液型を総合分析し、あなただけの鑑定結果をお届けします。無料お試し鑑定あり。">
+  <meta name="keywords" content="占い 無料, 姓名判断 無料, 今日の運勢, 相性占い, AI占い, 血液型占い, 星座占い">
+  <link rel="canonical" href="https://richend0913.github.io/ai-uranai/reading.html">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6327505164684489" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Stars Background -->
+  <div class="stars-container" id="stars-bg"></div>
+  <div class="nebula nebula-1"></div>
+  <div class="nebula nebula-2"></div>
+  <div class="nebula nebula-3"></div>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">&#x2728;</span>AI占い師
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="index.html#menu">鑑定メニュー</a></li>
+        <li><a href="index.html#faq">よくある質問</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="メニュー">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Reading Page -->
+  <div class="reading-page">
+    <div class="container">
+
+      <!-- Input Form -->
+      <div class="form-container" id="fortune-form-container">
+        <h2>&#128302; AI鑑定</h2>
+        <p class="form-subtitle">あなたの情報を入力してください</p>
+
+        <form id="fortune-form">
+          <div class="form-group">
+            <label>お名前（漢字・ひらがな・カタカナ）<span class="required">*</span></label>
+            <input type="text" class="form-control" id="input-name" placeholder="例：山田 花子" required>
+          </div>
+
+          <div class="form-group">
+            <label>生年月日<span class="required">*</span></label>
+            <input type="date" class="form-control" id="input-birthday" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>性別<span class="required">*</span></label>
+              <select class="form-control" id="input-gender" required>
+                <option value="">選択してください</option>
+                <option value="male">男性</option>
+                <option value="female">女性</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>血液型<span class="required">*</span></label>
+              <select class="form-control" id="input-blood" required>
+                <option value="">選択してください</option>
+                <option value="A">A型</option>
+                <option value="B">B型</option>
+                <option value="O">O型</option>
+                <option value="AB">AB型</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:8px;">
+            &#127775; 無料お試し鑑定を受ける
+          </button>
+          <p style="text-align:center; color:var(--text-muted); font-size:0.8rem; margin-top:12px;">
+            ※入力情報はサーバーに保存されません
+          </p>
+        </form>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div class="spinner" id="loading-spinner"></div>
+
+      <!-- Basic Result (Free) -->
+      <div class="results-section" id="basic-result">
+        <div class="result-card">
+          <div class="result-header">
+            <div class="result-zodiac" id="res-zodiac-icon"></div>
+            <h2 id="res-title"></h2>
+            <p class="user-info" id="res-user-info"></p>
+          </div>
+
+          <div class="result-block">
+            <h3>&#128171; 姓名判断</h3>
+            <p id="res-name-fortune"></p>
+          </div>
+
+          <div class="result-block">
+            <h3>&#127775; 性格診断</h3>
+            <p id="res-personality"></p>
+          </div>
+
+          <div class="result-block">
+            <h3>&#129504; 血液型の特徴</h3>
+            <p id="res-blood-traits"></p>
+          </div>
+
+          <div class="result-block">
+            <h3>&#127808; 今日のアドバイス</h3>
+            <p id="res-today-advice"></p>
+          </div>
+
+          <div class="lucky-items">
+            <div class="lucky-item">
+              <div class="lucky-label">ラッキーナンバー</div>
+              <div class="lucky-value" id="res-lucky-number"></div>
+            </div>
+            <div class="lucky-item">
+              <div class="lucky-label">ラッキーカラー</div>
+              <div class="lucky-value" id="res-lucky-color"></div>
+            </div>
+            <div class="lucky-item">
+              <div class="lucky-label">星座</div>
+              <div class="lucky-value" id="res-zodiac-name"></div>
+            </div>
+            <div class="lucky-item">
+              <div class="lucky-label">運勢</div>
+              <div class="lucky-value" id="res-luck-level"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ornament">&#10045; &#10045; &#10045;</div>
+
+        <!-- Ad Space -->
+        <div class="ad-space">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-6327505164684489"
+               data-ad-slot="auto"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Premium Blurred Section -->
+        <div class="premium-section" id="premium-section">
+          <div class="premium-overlay" id="premium-overlay">
+            <h3>&#128274; 詳細鑑定結果</h3>
+            <div class="price-tag">&#165;500</div>
+            <p>総合運勢・恋愛運・仕事運・金運・健康運の詳細分析、<br>ラッキーアイテム、相性診断など、充実の鑑定内容をお届けします</p>
+            <p class="price-note">※クレジットカード決済（Stripe）</p>
+            <button class="btn btn-primary" id="btn-unlock" onclick="unlockPremium()">
+              &#128275; 詳細鑑定を見る（&#165;500）
+            </button>
+            <button class="btn btn-secondary mt-2" onclick="unlockPremium()" style="font-size:0.85rem;">
+              &#127873; デモ：無料で全文を見る
+            </button>
+          </div>
+
+          <div class="premium-content" id="premium-content">
+            <div class="result-card">
+              <div class="result-header">
+                <h2>&#128220; 詳細鑑定結果</h2>
+                <p class="user-info" id="res-premium-title"></p>
+              </div>
+
+              <!-- Personality Deep Dive -->
+              <div class="result-block">
+                <h3>&#128142; あなたの本質</h3>
+                <div class="reading-text" id="res-ext-personality"></div>
+              </div>
+
+              <!-- General Fortune -->
+              <div class="result-block">
+                <h3>&#127776; 総合運勢</h3>
+                <div class="score-meter">
+                  <div class="score-bar"><div class="score-fill" id="score-general" style="width:0%"></div></div>
+                  <div class="score-value" id="score-general-val"></div>
+                </div>
+                <div class="reading-text" id="res-general"></div>
+              </div>
+
+              <!-- Love Fortune -->
+              <div class="result-block">
+                <h3>&#128150; 恋愛運</h3>
+                <div class="score-meter">
+                  <div class="score-bar"><div class="score-fill" id="score-love" style="width:0%"></div></div>
+                  <div class="score-value" id="score-love-val"></div>
+                </div>
+                <div class="reading-text" id="res-love"></div>
+              </div>
+
+              <!-- Work Fortune -->
+              <div class="result-block">
+                <h3>&#128188; 仕事運</h3>
+                <div class="score-meter">
+                  <div class="score-bar"><div class="score-fill" id="score-work" style="width:0%"></div></div>
+                  <div class="score-value" id="score-work-val"></div>
+                </div>
+                <div class="reading-text" id="res-work"></div>
+              </div>
+
+              <!-- Money Fortune -->
+              <div class="result-block">
+                <h3>&#128176; 金運</h3>
+                <div class="score-meter">
+                  <div class="score-bar"><div class="score-fill" id="score-money" style="width:0%"></div></div>
+                  <div class="score-value" id="score-money-val"></div>
+                </div>
+                <div class="reading-text" id="res-money"></div>
+              </div>
+
+              <!-- Health Fortune -->
+              <div class="result-block">
+                <h3>&#127808; 健康運</h3>
+                <div class="score-meter">
+                  <div class="score-bar"><div class="score-fill" id="score-health" style="width:0%"></div></div>
+                  <div class="score-value" id="score-health-val"></div>
+                </div>
+                <div class="reading-text" id="res-health"></div>
+              </div>
+
+              <!-- Monthly Advice -->
+              <div class="result-block">
+                <h3>&#128338; 今月のアドバイス</h3>
+                <div class="reading-text" id="res-monthly-advice"></div>
+              </div>
+
+              <!-- Lucky Items -->
+              <div class="result-block">
+                <h3>&#127808; ラッキーアイテム</h3>
+                <div class="lucky-items" id="res-lucky-items-detail"></div>
+              </div>
+
+              <!-- Compatibility -->
+              <div class="result-block">
+                <h3>&#128149; 相性の良い星座・血液型</h3>
+                <div class="reading-text" id="res-compatibility"></div>
+              </div>
+
+              <div class="ornament">&#10045; &#10045; &#10045;</div>
+
+              <div style="text-align:center; margin-top:32px;">
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:16px;">鑑定結果はいかがでしたか？</p>
+                <a href="reading.html" class="btn btn-secondary">もう一度占う</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ad Space -->
+        <div class="ad-space">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-6327505164684489"
+               data-ad-slot="auto"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">&#x2728; AI占い師</div>
+        <ul class="footer-links">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="index.html#menu">鑑定メニュー</a></li>
+          <li><a href="index.html#faq">よくある質問</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 AI占い師. All rights reserved.<br>
+        <small>※占いはエンターテインメントとしてお楽しみください。</small>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/fortune.js"></script>
+  <script>
+    // Generate stars
+    const starsContainer = document.getElementById('stars-bg');
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star' + (Math.random() > 0.85 ? ' large' : '');
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+      star.style.setProperty('--delay', (Math.random() * 5) + 's');
+      starsContainer.appendChild(star);
+    }
+    for (let i = 0; i < 15; i++) {
+      const sp = document.createElement('div');
+      sp.className = 'sparkle';
+      sp.style.left = Math.random() * 100 + '%';
+      sp.style.top = Math.random() * 100 + '%';
+      sp.style.setProperty('--float-duration', (6 + Math.random() * 8) + 's');
+      sp.style.setProperty('--float-delay', (Math.random() * 10) + 's');
+      starsContainer.appendChild(sp);
+    }
+
+    // Mobile menu
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('mobile-open');
+    });
+
+    // Store reading data globally
+    let currentBasicReading = null;
+    let currentDetailedReading = null;
+
+    // Form submission
+    document.getElementById('fortune-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('input-name').value.trim().replace(/\s/g, '');
+      const birthday = document.getElementById('input-birthday').value;
+      const gender = document.getElementById('input-gender').value;
+      const blood = document.getElementById('input-blood').value;
+
+      if (!name || !birthday || !gender || !blood) {
+        alert('すべての項目を入力してください');
+        return;
+      }
+
+      const [year, month, day] = birthday.split('-').map(Number);
+
+      // Show loading
+      const spinner = document.getElementById('loading-spinner');
+      spinner.classList.add('active');
+      document.getElementById('fortune-form-container').style.opacity = '0.5';
+      document.getElementById('fortune-form-container').style.pointerEvents = 'none';
+
+      // Simulate AI processing delay
+      setTimeout(() => {
+        spinner.classList.remove('active');
+
+        // Generate readings
+        currentBasicReading = FortuneEngine.generateBasicReading(name, year, month, day, gender, blood);
+        currentDetailedReading = FortuneEngine.generateDetailedReading(name, year, month, day, gender, blood);
+
+        // Populate basic results
+        displayBasicResult(currentBasicReading);
+
+        // Pre-populate premium results (blurred)
+        displayDetailedResult(currentDetailedReading, currentBasicReading);
+
+        // Show results
+        document.getElementById('basic-result').classList.add('active');
+        document.getElementById('fortune-form-container').style.display = 'none';
+
+        // Scroll to results
+        document.getElementById('basic-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 2000);
+    });
+
+    function displayBasicResult(r) {
+      document.getElementById('res-zodiac-icon').textContent = r.zodiac.symbol;
+      document.getElementById('res-title').textContent = r.name + 'さんの鑑定結果';
+      document.getElementById('res-user-info').textContent =
+        r.zodiac.name + ' / ' + r.blood + '型 / ' + r.year + '年' + r.month + '月' + r.day + '日生まれ';
+
+      document.getElementById('res-name-fortune').innerHTML =
+        'お名前の総画数は<strong>' + r.strokes + '画</strong>です。' +
+        '判定結果は<strong class="text-gold">「' + r.nameFortune.luck + '」</strong>。<br>' +
+        r.nameFortune.desc;
+
+      document.getElementById('res-personality').innerHTML =
+        r.personality + '<br><br>' +
+        r.bloodInfo.personality + 'であるあなたは、' +
+        r.zodiac.name + 'の「' + r.zodiac.element + '」のエレメントの影響を受け、' +
+        '独自の魅力を持っています。';
+
+      document.getElementById('res-blood-traits').innerHTML =
+        '<strong>' + r.blood + '型の基本性格：</strong>' + r.bloodInfo.personality + '<br><br>' +
+        '<strong>強み：</strong>' + r.bloodInfo.strengths.join('、') + '<br>' +
+        '<strong>注意点：</strong>' + r.bloodInfo.weaknesses.join('、');
+
+      document.getElementById('res-today-advice').textContent = r.todayAdvice;
+      document.getElementById('res-lucky-number').textContent = r.luckyNumber;
+      document.getElementById('res-lucky-color').textContent = r.luckyColor;
+      document.getElementById('res-zodiac-name').textContent = r.zodiac.symbol + ' ' + r.zodiac.name;
+      document.getElementById('res-luck-level').textContent = r.nameFortune.luck;
+    }
+
+    function displayDetailedResult(d, basic) {
+      document.getElementById('res-premium-title').textContent =
+        basic.name + 'さん（' + basic.zodiac.name + ' / ' + basic.blood + '型）の詳細鑑定';
+
+      // Extended personality
+      document.getElementById('res-ext-personality').innerHTML =
+        d.extPersonality.split('\n\n').map(p => '<p>' + p + '</p>').join('');
+
+      // Scores and readings
+      const sections = [
+        { key: 'general', text: d.general },
+        { key: 'love', text: d.love },
+        { key: 'work', text: d.work },
+        { key: 'money', text: d.money },
+        { key: 'health', text: d.health },
+      ];
+
+      sections.forEach(s => {
+        document.getElementById('score-' + s.key + '-val').textContent = d.scores[s.key] + '点';
+        document.getElementById('res-' + s.key).innerHTML = '<p>' + s.text + '</p>';
+      });
+
+      // Monthly advice
+      document.getElementById('res-monthly-advice').innerHTML = '<p>' + d.monthlyAdvice + '</p>';
+
+      // Lucky items detail
+      document.getElementById('res-lucky-items-detail').innerHTML = `
+        <div class="lucky-item">
+          <div class="lucky-label">ラッキーアイテム1</div>
+          <div class="lucky-value">${d.luckyItems[0]}</div>
+        </div>
+        <div class="lucky-item">
+          <div class="lucky-label">ラッキーアイテム2</div>
+          <div class="lucky-value">${d.luckyItems[1]}</div>
+        </div>
+        <div class="lucky-item">
+          <div class="lucky-label">ラッキーカラー</div>
+          <div class="lucky-value">${d.luckyColor}</div>
+        </div>
+        <div class="lucky-item">
+          <div class="lucky-label">ラッキースポット</div>
+          <div class="lucky-value">${d.luckySpot}</div>
+        </div>
+        <div class="lucky-item">
+          <div class="lucky-label">ラッキーナンバー</div>
+          <div class="lucky-value">${d.luckyNumber}</div>
+        </div>
+        <div class="lucky-item">
+          <div class="lucky-label">ラッキー曜日</div>
+          <div class="lucky-value">${d.luckyDay}</div>
+        </div>
+      `;
+
+      // Compatibility
+      document.getElementById('res-compatibility').innerHTML = `
+        <p><strong>相性の良い星座：</strong>${d.compatZodiac.join('、')}</p>
+        <p>これらの星座の方とは、価値観や行動パターンが自然に調和し、互いに高め合える関係を築きやすいでしょう。特に${d.compatZodiac[0]}の方とは、深い精神的なつながりを感じることができます。</p>
+        <br>
+        <p><strong>相性の良い血液型：</strong>${d.compatBlood.map(b => b + '型').join('、')}</p>
+        <p>${d.compatBlood[0]}型の方とは、コミュニケーションが自然で、お互いの長所を引き出し合える理想的な組み合わせです。恋愛面でも仕事面でも、良いパートナーシップを築けるでしょう。</p>
+      `;
+    }
+
+    function unlockPremium() {
+      // In production: redirect to Stripe payment link
+      // window.location.href = '#payment';
+
+      // Demo: unlock directly
+      const overlay = document.getElementById('premium-overlay');
+      const content = document.getElementById('premium-content');
+
+      overlay.classList.add('hidden');
+      content.classList.add('unlocked');
+
+      // Animate score bars
+      if (currentDetailedReading) {
+        setTimeout(() => {
+          const scores = currentDetailedReading.scores;
+          Object.keys(scores).forEach(key => {
+            document.getElementById('score-' + key).style.width = scores[key] + '%';
+          });
+        }, 300);
+      }
+
+      // Scroll to premium content
+      document.getElementById('premium-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>

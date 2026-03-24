@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI占い師｜姓名判断×星座×血液型の総合鑑定</title>
+  <meta name="description" content="AI占い師があなたの姓名判断・星座・血液型を総合分析。無料お試し鑑定から本格的な総合運勢鑑定まで。今日の運勢、相性占い、恋愛運もわかる。">
+  <meta name="keywords" content="占い 無料, 姓名判断 無料, 今日の運勢, 相性占い, AI占い, 血液型占い, 星座占い, 恋愛占い, 運勢, タロット">
+  <meta property="og:title" content="AI占い師｜姓名判断×星座×血液型の総合鑑定">
+  <meta property="og:description" content="AIがあなたの運命を読み解く。姓名判断×星座×血液型の総合鑑定で、恋愛・仕事・金運・健康運を詳しく占います。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://richend0913.github.io/ai-uranai/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://richend0913.github.io/ai-uranai/">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI占い師",
+    "description": "姓名判断×星座×血液型を組み合わせたAI総合鑑定サービス",
+    "url": "https://richend0913.github.io/ai-uranai/",
+    "applicationCategory": "Entertainment",
+    "operatingSystem": "Web",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "無料お試し鑑定",
+        "price": "0",
+        "priceCurrency": "JPY"
+      },
+      {
+        "@type": "Offer",
+        "name": "総合運勢鑑定",
+        "price": "500",
+        "priceCurrency": "JPY"
+      },
+      {
+        "@type": "Offer",
+        "name": "恋愛特化鑑定",
+        "price": "500",
+        "priceCurrency": "JPY"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6327505164684489" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Stars Background -->
+  <div class="stars-container" id="stars-bg"></div>
+  <div class="nebula nebula-1"></div>
+  <div class="nebula nebula-2"></div>
+  <div class="nebula nebula-3"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">&#x2728;</span>AI占い師
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#how-it-works">占い方</a></li>
+        <li><a href="#menu">鑑定メニュー</a></li>
+        <li><a href="#testimonials">体験者の声</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="reading.html" class="nav-cta">無料で占う</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="メニュー">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">&#9733; AI FORTUNE TELLER &#9733;</div>
+      <h1>
+        あなたの運命を、<br>
+        <span class="gradient-text">AIが読み解く</span>
+      </h1>
+      <p class="hero-subtitle">
+        姓名判断 × 星座 × 血液型<br>
+        3つの占術をAIが融合分析し、あなただけの詳細な鑑定結果をお届けします
+      </p>
+      <div class="hero-buttons">
+        <a href="reading.html" class="btn btn-primary pulse">
+          &#128302; 無料で占ってみる
+        </a>
+        <a href="#menu" class="btn btn-secondary">
+          鑑定メニューを見る
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">50,000+</div>
+          <div class="hero-stat-label">鑑定実績</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">4.8</div>
+          <div class="hero-stat-label">満足度（5点満点）</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">97%</div>
+          <div class="hero-stat-label">リピート率</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">HOW IT WORKS</div>
+        <h2 class="section-title">3ステップで本格鑑定</h2>
+        <p class="section-subtitle">最先端のAIが、古来の占術を組み合わせて<br>あなただけの鑑定結果を導き出します</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <div class="step-icon">&#9997;&#65039;</div>
+          <h3>情報入力</h3>
+          <p>お名前・生年月日・性別・血液型を入力するだけ。30秒で完了します。</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <div class="step-icon">&#129504;</div>
+          <h3>AI分析</h3>
+          <p>姓名判断の画数・星座の特性・血液型の相性をAIが多角的に分析します。</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <div class="step-icon">&#128220;</div>
+          <h3>詳細鑑定結果</h3>
+          <p>総合運勢・恋愛運・仕事運・金運・健康運を含む、あなただけの鑑定書をお届けします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu / Pricing -->
+  <section id="menu">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">MENU</div>
+        <h2 class="section-title">鑑定メニュー</h2>
+        <p class="section-subtitle">あなたのお悩みに合わせて選べる3つのコース</p>
+      </div>
+      <div class="pricing-grid">
+        <!-- Free -->
+        <div class="pricing-card reveal">
+          <div class="pricing-icon">&#127775;</div>
+          <h3>無料お試し鑑定</h3>
+          <div class="pricing-price"><span class="free">無料</span></div>
+          <ul class="pricing-features">
+            <li>性格タイプ診断</li>
+            <li>ラッキーカラー&ナンバー</li>
+            <li>今日のワンポイントアドバイス</li>
+            <li>姓名判断の基本結果</li>
+          </ul>
+          <a href="reading.html" class="btn btn-secondary">無料で試す</a>
+        </div>
+        <!-- Featured -->
+        <div class="pricing-card featured reveal">
+          <div class="pricing-icon">&#128171;</div>
+          <h3>総合運勢鑑定</h3>
+          <div class="pricing-price"><span class="yen">&#165;</span>500</div>
+          <ul class="pricing-features">
+            <li>無料鑑定の全内容</li>
+            <li>総合運勢スコア&詳細分析</li>
+            <li>恋愛運・仕事運・金運・健康運</li>
+            <li>今月の詳細アドバイス</li>
+            <li>ラッキーアイテム&スポット</li>
+            <li>相性の良い星座・血液型</li>
+            <li>500文字以上の詳細鑑定文</li>
+          </ul>
+          <a href="reading.html?plan=full" class="btn btn-primary">総合鑑定を受ける</a>
+        </div>
+        <!-- Love -->
+        <div class="pricing-card reveal">
+          <div class="pricing-icon">&#128150;</div>
+          <h3>恋愛特化鑑定</h3>
+          <div class="pricing-price"><span class="yen">&#165;</span>500</div>
+          <ul class="pricing-features">
+            <li>無料鑑定の全内容</li>
+            <li>恋愛運の徹底分析</li>
+            <li>理想の相手の特徴</li>
+            <li>出会いのタイミング</li>
+            <li>恋愛アドバイス</li>
+            <li>相性ランキング</li>
+          </ul>
+          <a href="reading.html?plan=love" class="btn btn-pink">恋愛鑑定を受ける</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">TESTIMONIALS</div>
+        <h2 class="section-title">体験者の声</h2>
+        <p class="section-subtitle">実際にご利用いただいたお客様からの感想です</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">
+            「正直、最初はAI占いなんて…と思っていましたが、鑑定結果を読んで驚きました。性格分析が的確すぎて鳥肌が立ちました。仕事の転機についてのアドバイスも参考になり、実際に良い方向に進んでいます。」
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">&#128105;</div>
+            <div>
+              <div class="testimonial-name">M.K. さん</div>
+              <div class="testimonial-meta">28歳 女性・総合運勢鑑定</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">
+            「恋愛特化鑑定を受けました。自分では気づいていなかった恋愛傾向を指摘されて、すごく納得。アドバイス通りに行動したら、本当に素敵な出会いがありました！500円でこの内容はコスパ最高です。」
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">&#128103;</div>
+            <div>
+              <div class="testimonial-name">Y.S. さん</div>
+              <div class="testimonial-meta">24歳 女性・恋愛特化鑑定</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+          <p class="testimonial-text">
+            「姓名判断と星座と血液型を組み合わせた鑑定は初めてでしたが、それぞれの要素がうまく融合されていて読み応えがありました。毎月利用して自分の行動指針にしています。」
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">&#128104;</div>
+            <div>
+              <div class="testimonial-name">T.N. さん</div>
+              <div class="testimonial-meta">35歳 男性・総合運勢鑑定</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">よくある質問</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question">
+            AI占いの精度はどのくらいですか？
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>当サービスでは、姓名判断の画数理論、西洋占星術の星座特性、血液型心理学の3つの占術をAIアルゴリズムで統合分析しています。50,000件以上の鑑定実績があり、満足度は4.8/5.0と高い評価をいただいています。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            無料鑑定と有料鑑定の違いは何ですか？
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>無料お試し鑑定では、基本的な性格診断とラッキーカラー・ナンバーをご覧いただけます。有料の総合運勢鑑定では、恋愛運・仕事運・金運・健康運の詳細分析、今月のアドバイス、相性診断など、500文字以上の充実した内容をお届けします。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            支払い方法を教えてください
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>お支払いはStripeを通じたクレジットカード決済（Visa, Mastercard, JCB, AMEX）に対応しています。決済情報は暗号化され安全に処理されます。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            鑑定結果は保存できますか？
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>はい。鑑定結果はブラウザ上でいつでも再表示が可能です。また、ページを印刷したりスクリーンショットを撮って保存することもできます。同じ情報を入力すれば、同じ鑑定結果が得られます。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            個人情報は安全ですか？
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>入力いただいた情報（お名前・生年月日等）はサーバーに保存されません。すべての鑑定処理はお客様のブラウザ上で完結するため、個人情報の漏洩リスクはありません。安心してご利用ください。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            返金はできますか？
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <p>デジタルコンテンツの性質上、鑑定結果表示後の返金には対応しておりません。まずは無料お試し鑑定をご利用いただき、サービスの品質をお確かめの上、有料鑑定をご検討ください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>あなたの運命の扉を、<br>今すぐ開きましょう</h2>
+        <p>まずは無料鑑定であなたの本質を確かめてみてください</p>
+        <a href="reading.html" class="btn btn-primary pulse">
+          &#128302; 無料鑑定を始める
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Space -->
+  <div class="ad-space container">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6327505164684489"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">&#x2728; AI占い師</div>
+        <ul class="footer-links">
+          <li><a href="#menu">鑑定メニュー</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="reading.html">無料鑑定</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 AI占い師. All rights reserved.<br>
+        <small>※占いはエンターテインメントとしてお楽しみください。重要な判断の際は専門家にご相談ください。</small>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Generate stars
+    const starsContainer = document.getElementById('stars-bg');
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.className = 'star' + (Math.random() > 0.85 ? ' large' : '');
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+      star.style.setProperty('--delay', (Math.random() * 5) + 's');
+      starsContainer.appendChild(star);
+    }
+    // Shooting stars
+    for (let i = 0; i < 3; i++) {
+      const ss = document.createElement('div');
+      ss.className = 'shooting-star';
+      ss.style.top = (Math.random() * 40) + '%';
+      ss.style.left = (Math.random() * 50) + '%';
+      starsContainer.appendChild(ss);
+    }
+    // Sparkles
+    for (let i = 0; i < 20; i++) {
+      const sp = document.createElement('div');
+      sp.className = 'sparkle';
+      sp.style.left = Math.random() * 100 + '%';
+      sp.style.top = Math.random() * 100 + '%';
+      sp.style.setProperty('--float-duration', (6 + Math.random() * 8) + 's');
+      sp.style.setProperty('--float-delay', (Math.random() * 10) + 's');
+      starsContainer.appendChild(sp);
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('mobile-open');
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('open'); });
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
