@@ -1291,3 +1291,33 @@ select.form-control option {
 .star-empty {
   color: var(--text-muted);
 }
+
+/* A8 affiliate CTA (shindan aff-card pattern, theme-adapted) */
+.aff {
+  background: linear-gradient(135deg, rgba(106, 59, 170, 0.18), rgba(45, 27, 94, 0.28));
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 18px;
+  padding: 22px 20px;
+  margin: 24px 0 8px;
+  text-align: center;
+}
+.aff-head { font-size: 0.95rem; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+.aff-sub { font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 16px; }
+.aff-card {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(240, 230, 255, 0.05);
+  border: 1px solid rgba(155, 114, 207, 0.35);
+  border-radius: 14px; padding: 14px 16px; margin-bottom: 10px;
+  text-decoration: none; text-align: left; transition: all 0.2s;
+}
+.aff-card:hover { transform: translateY(-2px); border-color: var(--gold); box-shadow: 0 6px 18px rgba(212, 175, 55, 0.15); }
+.aff-ic { font-size: 1.6rem; flex-shrink: 0; }
+.aff-body { flex: 1; display: flex; flex-direction: column; }
+.aff-body b { font-size: 0.92rem; color: var(--text-primary); }
+.aff-body small { font-size: 0.74rem; color: var(--text-secondary); line-height: 1.5; }
+.aff-badge {
+  font-size: 0.68rem; color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px; padding: 3px 10px; white-space: nowrap; flex-shrink: 0;
+}
+.aff-note { font-size: 0.66rem; color: var(--text-muted); margin-top: 4px; }
